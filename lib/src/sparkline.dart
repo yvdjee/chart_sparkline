@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'dart:ui' as ui show PointMode;
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+// import 'package:intl/intl.dart';
 
 /// Strategy used when filling the area of a sparkline.
 enum FillMode {
@@ -370,12 +370,12 @@ class _SparklinePainter extends CustomPainter {
   final Color? backgroundColor;
 
   
-  final formatCurrency = NumberFormat.currency(locale: "en_PH", symbol: "₱");
+  // final formatCurrency = NumberFormat.currency(locale: "en_PH", symbol: "₱");
 
   List<TextPainter> gridLineTextPainters = [];
 
   update() {
-    if (enableGridLines) {
+    // if (enableGridLines) {
       double gridLineValue;
       for (int i = 0; i < gridLineAmount; i++) {
         // Label grid lines
@@ -388,8 +388,8 @@ class _SparklinePainter extends CustomPainter {
         gridLineTextPainters.add(TextPainter(
             text: TextSpan(
                 // text: labelPrefix + gridLineText,
-                // text: gridLinelabelPrefix + gridLineText,
-                text: formatCurrency.format(gridLineText).toString(),
+                text: gridLinelabelPrefix + gridLineText,
+                // text: formatCurrency.format(gridLineText).toString(),
                 style: TextStyle(
                     color: gridLineLabelColor,
                     fontSize: 10.0,
@@ -397,7 +397,7 @@ class _SparklinePainter extends CustomPainter {
             textDirection: TextDirection.ltr));
         gridLineTextPainters[i].layout();
       }
-    }
+    // }
   }
 
   @override
