@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 import 'dart:ui' as ui show PointMode;
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 /// Strategy used when filling the area of a sparkline.
 enum FillMode {
@@ -370,7 +369,6 @@ class _SparklinePainter extends CustomPainter {
   final Color? backgroundColor;
 
   List<TextPainter> gridLineTextPainters = [];
-  final compactCurrency = NumberFormat.compact(locale: "en_PH");
 
   update() {
     if (enableGridLines) {
@@ -386,14 +384,12 @@ class _SparklinePainter extends CustomPainter {
         gridLineTextPainters.add(TextPainter(
             text: TextSpan(
                 // text: labelPrefix + gridLineText,
-                // text: gridLinelabelPrefix + gridLineText,
-                text: "${compactCurrency.format(gridLineText)}",
+                text: gridLinelabelPrefix + gridLineText,
                 style: TextStyle(
                     color: gridLineLabelColor,
                     fontSize: 10.0,
                     fontWeight: FontWeight.bold)),
-            //textDirection: TextDirection.ltr
-        ));
+            textDirection: TextDirection.ltr));
         gridLineTextPainters[i].layout();
       }
     }
@@ -596,8 +592,7 @@ class _SparklinePainter extends CustomPainter {
                 fontSize: 10.0,
               ),
             ),
-            // textDirection: TextDirection.ltr,
-        );
+            textDirection: TextDirection.ltr);
         avgPaint.layout();
         RRect rect = RRect.fromLTRBR(
             size.width - avgPaint.width - 10.0,
@@ -625,8 +620,7 @@ class _SparklinePainter extends CustomPainter {
                     color: gridLineColor,
                     fontSize: 10.0,
                     fontWeight: FontWeight.bold)),
-            // textDirection: TextDirection.ltr,
-        );
+            textDirection: TextDirection.ltr);
         spPainter.layout();
         var spOffset = spDataPoints[item]['offset'];
 
