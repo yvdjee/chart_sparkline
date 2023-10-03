@@ -370,7 +370,7 @@ class _SparklinePainter extends CustomPainter {
   final Color? backgroundColor;
 
   List<TextPainter> gridLineTextPainters = [];
-  final formatCurrency = NumberFormat.currency(locale: "en_PH", symbol: "₱");
+  final compactCurrency = NumberFormat.compact(locale: "en_PH");
 
   update() {
     if (enableGridLines) {
@@ -387,7 +387,7 @@ class _SparklinePainter extends CustomPainter {
             text: TextSpan(
                 // text: labelPrefix + gridLineText,
                 // text: gridLinelabelPrefix + gridLineText,
-                text: "${formatCurrency.format(gridLineText)}",
+                text: "${compactCurrency.format(gridLineText)}",
                 style: TextStyle(
                     color: gridLineLabelColor,
                     fontSize: 10.0,
