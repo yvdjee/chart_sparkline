@@ -389,7 +389,7 @@ class _SparklinePainter extends CustomPainter {
             text: TextSpan(
                 // text: labelPrefix + gridLineText,
                 // text: gridLinelabelPrefix + gridLineText,
-                text: formatCurrency.format(gridLineText),
+                text: formatCurrency.format(gridLineText).toString(),
                 style: TextStyle(
                     color: gridLineLabelColor,
                     fontSize: 10.0,
