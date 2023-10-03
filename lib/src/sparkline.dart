@@ -596,7 +596,8 @@ class _SparklinePainter extends CustomPainter {
                 fontSize: 10.0,
               ),
             ),
-            textDirection: TextDirection.ltr);
+            // textDirection: TextDirection.ltr,
+        );
         avgPaint.layout();
         RRect rect = RRect.fromLTRBR(
             size.width - avgPaint.width - 10.0,
@@ -624,7 +625,8 @@ class _SparklinePainter extends CustomPainter {
                     color: gridLineColor,
                     fontSize: 10.0,
                     fontWeight: FontWeight.bold)),
-            textDirection: TextDirection.ltr);
+            // textDirection: TextDirection.ltr,
+        );
         spPainter.layout();
         var spOffset = spDataPoints[item]['offset'];
 
