@@ -392,7 +392,8 @@ class _SparklinePainter extends CustomPainter {
                     color: gridLineLabelColor,
                     fontSize: 10.0,
                     fontWeight: FontWeight.bold)),
-            textDirection: TextDirection.ltr));
+            //textDirection: TextDirection.ltr
+        ));
         gridLineTextPainters[i].layout();
       }
     }
