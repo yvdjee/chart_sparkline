@@ -434,7 +434,7 @@ class _SparklinePainter extends CustomPainter {
     if (enableGridLines) {
       width = size.width - gridLineTextPainters[0].size.width;
       Paint gridPaint = Paint()
-        ..color = gridLineColor
+        ..color = Colors.transparent
         ..strokeWidth = gridLineWidth;
 
       double gridLineDist = height / (gridLineAmount - 1);
