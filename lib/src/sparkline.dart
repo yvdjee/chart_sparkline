@@ -368,6 +368,9 @@ class _SparklinePainter extends CustomPainter {
   final List? kLine;
   final Color? backgroundColor;
 
+  
+  final formatCurrency = NumberFormat.currency(locale: "en_PH", symbol: "₱");
+
   List<TextPainter> gridLineTextPainters = [];
 
   update() {
@@ -379,12 +382,13 @@ class _SparklinePainter extends CustomPainter {
 
         String gridLineText = gridLinelabel != null
             ? gridLinelabel!(gridLineValue)
-            : gridLineValue.toStringAsFixed(gridLineLabelPrecision);
+            : gridLineValue(gridLineLabelPrecision);
 
         gridLineTextPainters.add(TextPainter(
             text: TextSpan(
                 // text: labelPrefix + gridLineText,
-                text: gridLinelabelPrefix + gridLineText,
+                // text: gridLinelabelPrefix + gridLineText,
+                text: formatCurrency.format(gridLineText),
                 style: TextStyle(
                     color: gridLineLabelColor,
                     fontSize: 10.0,
